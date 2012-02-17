@@ -18,7 +18,7 @@ module DfpHelper
 
       raw <<-END.strip
 <!-- #{_i} -->
-<div id='#{_id}' style='width:#{_size[0]}px; height:#{_size[1]}px;'>
+<div id='#{_id}' class='dfp dfp_#{_size[0]}x#{_size[1]}'>
 <script type='text/javascript'>
 googletag.cmd.push(function() { googletag.display('#{_id}'); });
 </script>

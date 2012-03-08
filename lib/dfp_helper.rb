@@ -12,7 +12,7 @@ module DfpHelper
     def dfp_helper_slot(_i, options = {})
       @@dfp_helper_id ||= (Time.now.to_f*1000).to_i
 
-      _id = "div-gpt-ad-#{@@dfp_helper_id}-#{dfp_helper_slots.size}"
+      _id = "div-gpt-ad-#{@@dfp_helper_id}-#{options[:index] || dfp_helper_slots.size}"
       _size = options[:size] || _i.match(/\d+x\d+/)[0].split('x')
       dfp_helper_slots << options.merge({:id => _i, :div_id => _id, :size => _size})
 

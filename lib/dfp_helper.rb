@@ -24,7 +24,7 @@ googletag.cmd.push(function() { googletag.display('#{_id}'); });
       END
     end
 
-    def dfp_helper_head
+    def dfp_helper_head(options = nil)
       return unless dfp_helper_slots.size > 0
       o = dfp_helper_slots.collect{|i|
         _targeting = (i[:targeting]||[]).collect{|k,v| ".setTargeting(#{k.to_json}, #{v.to_json})"}.join
@@ -50,6 +50,7 @@ node.parentNode.insertBefore(gads, node);
 <script type='text/javascript'>
 googletag.cmd.push(function() {
 #{o}
+#{options}
 googletag.pubads().enableSingleRequest();
 googletag.enableServices();
 });
